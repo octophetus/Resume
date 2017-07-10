@@ -4,6 +4,7 @@ body {
 	color: #272827;
 	font-family: Raleway, sans serif;
 	font-size: 18px;
+
 }
 h1 {
 	font-family: Josefin Slab, Arial, sans serif;
@@ -16,9 +17,11 @@ h2 {
 	margin-top: 0;
 	text-align: center;
 }
+
 .alignleft {
 	text-align: left;
 }
+
 h3 {
 	font-family: Josefin Slab, sans serif;
 	font-size: 1.2em;
@@ -32,6 +35,21 @@ h3 {
 }
 .flex-container {
 	display: flex;
+	flex-wrap: wrap;
+}
+
+
+/*NAV BAR */
+nav {
+	text-align: center;
+}
+
+nav a {
+	font-family: Josefin Slab, sans serif;
+	font-size: 2em;
+	font-weight: 700;
+	display: inline-block;
+	padding: 15px 20px;
 }
 
 
@@ -45,12 +63,14 @@ header {
 	width: 300px;
 	border: 10px solid #272827;
 	border-radius: 50%;
-	float: left;
-	margin-right: 30px;
 }
 .profile-info {
 	padding-top: 5%;
+	padding-left: 0%;
 }
+
+
+
 header h1, header h2{
 	margin: 0;
 }
@@ -59,13 +79,13 @@ header h1, header h2{
 /* .rightflex keeps the right hand side of our flex info spaced away from the left hand side */
 .rightflex {
 	flex:1;
-	padding-right: 40px;
-	margin-left: 20px;
+/*	padding-right: 40px;
+	margin-left: 20px; */
 }
 .leftflex {
 	flex: 1;
-	padding-left: 40px;
-	margin-right: 20px;
+/*	padding-left: 40px;
+	margin-right: 20px;   */
 }
 
 
@@ -89,11 +109,7 @@ header h1, header h2{
 }
 
 
-/* Makes the name of Employer/Responsibilities and name of degree bold */
-.leftflex p:first-of-type {
-	font-weight: 700;
-}
-.rightflex p:first-of-type {
+.bold {
 	font-weight: 700;
 }
 
@@ -121,9 +137,10 @@ ul li:before {
 /* LINKS */
 a:link, a:visited {
 	color: #EF8B6E;
+	text-decoration: none;
 }
 
-a:hover {
+footer a:hover {
     text-shadow: 0 0 20px #EF8B6E;
 }
 
@@ -169,4 +186,69 @@ footer a{
     -ms-transition: transform .7s ease-in-out;
     -o-transition: transform .7s ease-in-out;
     transition: transform .7s ease-in-out;
+}
+
+/* NAV BAR POP OUT IMAGES */
+
+/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+
+#worklink:hover{
+	position: relative;
+}
+
+#aboutlink:hover::after {
+    content: url(ghost.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    display: block;
+    position: absolute;
+  	/*animation: rotate-btn .6s linear infinite;
+  	-webkit-animation: rotate-btn .6s linear infinite;*/
+  	    opacity: 1;
+    animation: fade 2s linear infinite;
+}
+
+	/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+#worklink:hover::after {
+    content: url(work.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    display: block;
+    position: absolute;
+    left: 30%;
+  	animation: rotate-btn .6s linear infinite;
+  	-webkit-animation: rotate-btn .6s linear infinite;
+}
+		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+#educationlink:hover::after {
+    content: url(school.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    display: block;
+    position: absolute;
+  	animation: rotate-btn .6s linear infinite;
+  	-webkit-animation: rotate-btn .6s linear infinite;
+}
+		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+#contactlink:hover::after {
+    content: url(bat.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    display: block;
+    position: absolute;
+  	animation: rotate-btn .6s linear infinite;
+  	-webkit-animation: rotate-btn .6s linear infinite;
+}
+
+
+@keyframes rotate-btn {
+	0% {
+	    transform: rotate(0deg);
+	  }
+	25% {
+	    transform: rotate(20deg);
+	  }
+	50% {
+	    transform: rotate(0deg);
+	  }
+	75% {
+		transform: rotate(-20deg);
+	}
+}
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
 }
