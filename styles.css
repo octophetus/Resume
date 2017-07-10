@@ -1,0 +1,172 @@
+body {
+	background-color: #FFFFFF;
+	margin: 0;
+	color: #272827;
+	font-family: Raleway, sans serif;
+	font-size: 18px;
+}
+h1 {
+	font-family: Josefin Slab, Arial, sans serif;
+	font-size: 3em;
+}
+
+h2 {
+	font-family: Josefin Slab, sans serif;
+	font-size: 2em;
+	margin-top: 0;
+	text-align: center;
+}
+.alignleft {
+	text-align: left;
+}
+h3 {
+	font-family: Josefin Slab, sans serif;
+	font-size: 1.2em;
+	text-align: center;
+}
+.content-wrap {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 50px;
+	overflow: auto;
+}
+.flex-container {
+	display: flex;
+}
+
+
+
+
+/* HEADER SECTION */
+header {
+    background: #FCD3C1;
+}
+.profilepic {
+	width: 300px;
+	border: 10px solid #272827;
+	border-radius: 50%;
+	float: left;
+	margin-right: 30px;
+}
+.profile-info {
+	padding-top: 5%;
+}
+header h1, header h2{
+	margin: 0;
+}
+
+
+/* .rightflex keeps the right hand side of our flex info spaced away from the left hand side */
+.rightflex {
+	flex:1;
+	padding-right: 40px;
+	margin-left: 20px;
+}
+.leftflex {
+	flex: 1;
+	padding-left: 40px;
+	margin-right: 20px;
+}
+
+
+/* Different background colors of the work drop downs */
+.work {
+	background-color: #9FF3E4;
+}
+.work1 {
+	background-color: #BFB8F2;
+}
+.work2 {
+	background-color: #DDC6F2;
+}
+.work3 {
+	background-color: #9DE1F2;
+}
+
+
+.education {
+	background-color: #EF8B6E;
+}
+
+
+/* Makes the name of Employer/Responsibilities and name of degree bold */
+.leftflex p:first-of-type {
+	font-weight: 700;
+}
+.rightflex p:first-of-type {
+	font-weight: 700;
+}
+
+
+
+/* SPECIAL BULLETS */
+ul {
+	list-style: none;
+		padding: 0;
+}
+ul li {
+	padding: 5px 0 5px 30px;
+	position: relative;
+}
+ul li:before {
+	content: '\f005';
+	color: #FCD3C1;
+	font-family: 'FontAwesome';
+	position: absolute;
+	top: 6px;
+	left: 5px;
+}
+
+
+/* LINKS */
+a:link, a:visited {
+	color: #EF8B6E;
+}
+
+a:hover {
+    text-shadow: 0 0 20px #EF8B6E;
+}
+
+
+/* FOOTER */
+footer {
+	color: #FFFFFF;
+	text-align: center;
+	background: #272827;
+}
+footer a{
+	margin: 20px;
+}
+.socialmediaicons {
+    font-size:5em;
+}
+
+
+
+/* Employment History Cards */
+.grow {
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  height: 49px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.grow:hover {
+	height: 100%;
+	width: 100%;
+
+/*Gives pop-out effect */
+	-moz-transform: scale(1.07);
+	-webkit-transform: scale(1.07);
+    -o-transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    transform: scale(1.07);
+
+/*Time it takes to expand */
+    -webkit-transition: transform .7s ease-in-out;
+    -moz-transition: transform .7s ease-in-out;
+    -ms-transition: transform .7s ease-in-out;
+    -o-transition: transform .7s ease-in-out;
+    transition: transform .7s ease-in-out;
+}
