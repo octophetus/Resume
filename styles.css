@@ -197,7 +197,7 @@ footer a{
 }
 
 #aboutlink:hover::after {
-    content: url(ghost.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(ghost.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
   	/*animation: rotate-btn .6s linear infinite;
@@ -208,7 +208,7 @@ footer a{
 
 	/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #worklink:hover::after {
-    content: url(work.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(work.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
     left: 30%;
@@ -217,7 +217,7 @@ footer a{
 }
 		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #educationlink:hover::after {
-    content: url(school.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(school.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
   	animation: rotate-btn .6s linear infinite;
@@ -225,7 +225,7 @@ footer a{
 }
 		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #contactlink:hover::after {
-    content: url(bat.PNG); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(bat.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
   	animation: rotate-btn .6s linear infinite;
