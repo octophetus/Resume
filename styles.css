@@ -52,9 +52,6 @@ nav a {
 	padding: 15px 20px;
 }
 
-
-
-
 /* HEADER SECTION */
 header {
     background: #FCD3C1;
@@ -77,15 +74,14 @@ header h1, header h2{
 
 
 /* .rightflex keeps the right hand side of our flex info spaced away from the left hand side */
-.rightflex {
+.rightflex, .leftflex {
 	flex:1;
-/*	padding-right: 40px;
-	margin-left: 20px; */
+	min-width: 200px;
 }
-.leftflex {
-	flex: 1;
-/*	padding-left: 40px;
-	margin-right: 20px;   */
+
+/* The header flex boxes have their own because otherwise the header text bleeds into image */
+.rightflex-header, .leftflex-header {
+	flex:1;
 }
 
 
@@ -164,7 +160,7 @@ footer a{
 .grow {
   padding: 5px 5px 5px 5px;
   border-radius: 10px;
-  height: 49px;
+  height: 60px;
   width: 100%;
   overflow: hidden;
 }
@@ -208,7 +204,7 @@ footer a{
 
 	/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #worklink:hover::after {
-    content: url(work.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(work2.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
     left: 30%;
@@ -217,7 +213,7 @@ footer a{
 }
 		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #educationlink:hover::after {
-    content: url(school.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(school2.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
   	animation: rotate-btn .6s linear infinite;
@@ -225,7 +221,7 @@ footer a{
 }
 		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #contactlink:hover::after {
-    content: url(bat.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+    content: url(bat2.png); /* change this image and keep the rest of the code in this section if you want to create a new menu item */
     display: block;
     position: absolute;
   	animation: rotate-btn .6s linear infinite;
@@ -252,3 +248,8 @@ footer a{
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
 }
+
+
+
+
+
