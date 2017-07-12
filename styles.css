@@ -51,6 +51,34 @@ nav a {
 	display: inline-block;
 	padding: 15px 20px;
 }
+#dropdown {
+    position: relative;
+}
+#dropdown-content {
+    display: none;
+	position: absolute;
+    z-index: 1;
+    top: 80%;
+    left: calc(50% - 100px);
+/*    box-sizing: border-box;*/
+}
+#dropdown:hover #dropdown-content {
+    display: block;
+}
+#ouijileft {
+/*	position: absolute;
+	right: 20px;*/
+	cursor: url(planchette.png), auto;
+	display: inline;
+	padding: 0;
+	margin-right: -5px;
+}
+#ouijiright {
+/*	position: absolute;*/
+	cursor: url(planchette.png), auto;
+	display: inline;
+	padding: 0;
+}
 
 /* HEADER SECTION */
 header {
@@ -198,8 +226,9 @@ footer a{
     position: absolute;
   	/*animation: rotate-btn .6s linear infinite;
   	-webkit-animation: rotate-btn .6s linear infinite;*/
-  	    opacity: 1;
-    animation: fade 2s linear infinite;
+  	opacity: 1;
+    animation: fade 1.5s linear infinite;
+    z-index: 1;
 }
 
 	/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
@@ -210,6 +239,7 @@ footer a{
     left: 30%;
   	animation: rotate-btn .6s linear infinite;
   	-webkit-animation: rotate-btn .6s linear infinite;
+  	z-index: 1;
 }
 		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #educationlink:hover::after {
@@ -218,6 +248,7 @@ footer a{
     position: absolute;
   	animation: rotate-btn .6s linear infinite;
   	-webkit-animation: rotate-btn .6s linear infinite;
+  	z-index: 1;
 }
 		/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 #contactlink:hover::after {
@@ -226,7 +257,9 @@ footer a{
     position: absolute;
   	animation: rotate-btn .6s linear infinite;
   	-webkit-animation: rotate-btn .6s linear infinite;
+  	    z-index: 1;
 }
+
 
 
 @keyframes rotate-btn {
