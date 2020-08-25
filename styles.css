@@ -94,6 +94,24 @@ header {
 	padding-left: 0%;
 }
 
+/* START ROTATE STYLES */
+
+#rotator img {
+-webkit-transition: all 1s ease-in-out;
+-moz-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out;
+-ms-transition: all 1s ease-in-out;
+}
+
+#rotator img:hover {
+-webkit-transform: rotate(360deg);
+-moz-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+}
+
+/* END ROTATE STYLES */
+
 
 
 header h1, header h2{
