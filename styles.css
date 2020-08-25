@@ -87,8 +87,7 @@ header {
 .flip-card {
   background-color: transparent;
   width: 300px;
-  border: 10px solid #272827;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  /* perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
@@ -102,8 +101,8 @@ header {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+.leftflex-header:hover .flip-card-inner {
+  transform: rotateY(540deg);
 }
 
 /* Position the front and back side */
@@ -132,7 +131,12 @@ header {
 	padding-top: 5%;
 	padding-left: 0%;
 }
-
+.profilepic {
+	width: 300px;
+	border: 10px solid #272827;
+	border-radius: 50%;
+}
+	
 
 header h1, header h2{
 	margin: 0;
