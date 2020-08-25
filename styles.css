@@ -135,6 +135,7 @@ header {
 	width: 300px;
 	border: 10px solid #272827;
 	border-radius: 50%;
+	box-sizing: border-box;
 }
 	
 
