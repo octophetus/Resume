@@ -113,10 +113,16 @@ header {
     transform-style: preserve-3d;
 }
 
+.leftflex-header {
+    margin-right: 1em;
+    min-height: 320px;
+}
+
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 
-.leftflex-header:hover .flip-card-inner {
+.leftflex-header:hover .flip-card-inner,
+.leftflex-header:active .flip-card-inner {
     transform: rotateY(540deg);
 }
 
