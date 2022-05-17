@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Open SSL Write Up"
-date:   2022-05-17 13:39:15 -0700
+date:   2022-05-17 15:50:40
 categories: security
 ---
 When you register (at an external Ceritfication Authority or CA) for an SSL certificate, it essentially certifies your site as saying 'you are officially Hoppers Roppers' once you receive the SSL certificate and you install it on your server. All SSL certs expire after some time. When a client connects to your site, the SSL certificate establishes an encrypted link between a server and a client.
@@ -18,11 +18,11 @@ SSL allows sensitive information such as credit card numbers, social security nu
 
 If your SSL certificate expires, it doesn't mean your site is significantly less secure than it was yesterday. Just like if your driver's license expires, it doesn't suddenly mean you've forgotten how to drive and are now a danger to everyone. Encryption is still happening with expired certificates but the certificate provider will not validate it.
 
-**So why keep paying the CA to renew? Who cares if it's expired?**
+**So why keep paying the CA to renew? Who cares if it's expired**
 
 Having an active certificate means that the CA can issue a revocation if the private key were ever compromised. After the expiration, if the private key were compromised, the user will have no way to know. The expiration date also ensures that you have an "audit" every so often. If there were no expiration date, and someone stopped using a certificate (and stopped protecting the private key), no one would ever know. However, by having an expiration date you ensure that they have to go back to the CA that sold them the SSL certificate and is re-validated as the person or service they claim to be.
 
 But, especially if it hasn't been very long, it mostly it means people will be freaked out by the warning and not want to go to your site.
 
-*Note*:
+*Note:*
 Also, even without access to the encrypted messaging going on on the 'real site', I believe a hacker could set up a phishing site that looks like the real deal and has an active certificate which would further muddle the waters of what is the 'real site' and what is the 'fake' since the 'real' site is using an expired cert and giving off warnings, and  the fake site seems to have more legitimacy??
