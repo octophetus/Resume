@@ -100,7 +100,7 @@ Note: I couldn't tell if it was running or not since it runs in the background (
 <ol>
 <li>Write the bash script to append the date and time the script was run to a file named "dates.txt"
 <li>Write the cron command to run the script you just wrote every Friday at noon.
-<ol>
+</ol>
 
 **Answers**:
 <ol>
@@ -110,4 +110,4 @@ Note: I couldn't tell if it was running or not since it runs in the background (
 date >> /home/studentName/Documents/dates.txt
 {% endhighlight %}
 <li>0 12 * * FRI /home/studentName/Documents/dateLog.sh
-<ol>
+</ol>
