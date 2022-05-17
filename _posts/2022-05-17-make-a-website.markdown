@@ -10,12 +10,16 @@ Using the demoHtml repo you already forked off of in the first git assignment, c
 
 Section one of the linked guide is for "Creating a repository for your site". We already have the repo made from when we forked it, so I think we can safely skip this section this time.
 
+
 **The next section is "Creating your site":**
+
 Before you can create your site, you must have a repository for your site on GitHub. If you're not creating your site in an existing repository, see "Creating a repository for your site."
 	
 *Ok, check!*
 	
+
 **Step 1: On GitHub, navigate to your site's repository.**
+
 <https://github.com/octophetus/demoHtml>.
 	
 **Step 2:** Decide which publishing source you want to use. For more information, see "About GitHub Pages."
@@ -30,11 +34,17 @@ All our files are in the root of the repository for demoHtml so let's navigate t
 We already have a README.md so why don't we just skip this step for now.
 	
 **Step 5:** Configure your publishing source. For more information, see "Configuring a publishing source for your GitHub Pages site."
+
 Choosing a publishing source:
+
 Step 5a: On GitHub, navigate to your site's repository.
+
 Step 5b: Under your repo name, click settings
+
 Step 5c: In the "Code and automation" section of the sidebar, click Pages.
+
 Step 5d: Under "GitHub Pages", use the None or Branch drop-down menu and select a publishing source (here we are choosing Branch: main)
+
 Step 5e: Optionally, use the drop-down menu to select a folder for your publishing source (I am choosing directory / root)
 	
 **Step 6:** Click save
