@@ -27,6 +27,7 @@ url: "https://github.com/octophetus/Resume" # the base hostname & protocol for y
 twitter_username: Octophetus
 github_username: Octophetus
 permalink: /blog/:title:output_ext
+baseurl: "/Resume"
 header_pages:
   - index.markdown
   - blog.markdown
