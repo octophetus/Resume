@@ -26,7 +26,7 @@ baseurl: ""
 url: "https://github.com/octophetus/Resume" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Octophetus
 github_username: Octophetus
-permalink: /blog/:title:output_ext
+permalink: /blog/:title:output_ext/
 baseurl: "/Resume"
 header_pages:
   - index.markdown
@@ -36,6 +36,9 @@ header_pages:
 theme: minima
 plugins:
   - jekyll-feed
+
+#set timezone
+timezone: US/Eastern
 
 # Exclude from processing.
 # The following items will not be processed, by default.
