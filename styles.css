@@ -301,7 +301,7 @@ footer a {
 /* NAV BAR POP OUT IMAGES */
 
 
-/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+/* POP OUT IMAGE FOR HOVERING ON ABOUT IN THE NAV BAR */
 
 #worklink:hover {
     position: relative;
@@ -320,7 +320,7 @@ footer a {
 }
 
 
-/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+/* POP OUT IMAGE FOR HOVERING ON WORK IN THE NAV BAR */
 
 #worklink:hover::after {
     content: url(work2.png);
@@ -334,7 +334,7 @@ footer a {
 }
 
 
-/* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
+/* POP OUT IMAGE FOR HOVERING ON EDUCATION IN THE NAV BAR */
 
 #educationlink:hover::after {
     content: url(school2.png);
