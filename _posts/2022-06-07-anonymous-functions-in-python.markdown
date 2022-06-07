@@ -77,6 +77,7 @@ new_list = []
         If x % 3 == 0:
 
             new_list.append(i)
+
 {% endhighlight %}	
 
 Now with mapping:
@@ -87,7 +88,8 @@ nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 map(lambda x: x * 2, nums)
 {% endhighlight %}
 	
-				WORKS THE SAME AS:
+     WORKS THE SAME AS:
+
 {% highlight Python %}	
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
