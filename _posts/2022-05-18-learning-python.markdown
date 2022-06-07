@@ -107,7 +107,7 @@ Congratulations! Now you know how to program in Python! It definitely won't get 
 
 **Statically typed languages:**
 
-A language is statically typed if the type of a variable is known at compile time. For some languages this means that you as the programmer must specify what type each variable is (as in, specify that a variable is an integer or a string, etc.). For example int a can only take an integer type at runtime.
+A language is statically typed if the type of a variable is known at compile time. For some languages this means that you, as the programmer, must specify what type each variable is (as in, specify that a variable is an integer or a string, etc.) at the time of compiling it. For example int a can only take an integer type when it comes to runtime.
 
 The main advantage here is that all kinds of checking can be done by the compiler, and therefore a lot of trivial bugs are caught at a very early stage.
 
@@ -116,7 +116,8 @@ Examples: C, C++, Java, Rust, Go, Scala
 
 **Dynamically typed languages**
 
-A language is dynamically typed if the type is associated with run-time values, and not named variables/fields/etc. This means that you as a programmer can write a little quicker because you do not have to specify types every time. For example var a can take any kind of value at runtime. This might create an issue when someone writes "43535" as their name, or "Liz" as their age and you try to utilize that data in unexpected ways.
+A language is dynamically typed if the type is associated with run-time values, and not named variables/fields/etc. This means that you as a programmer can write a little quicker because you do not have to specify types every time. For example var a can take any kind of value and doesn't consider whether the types work until actual runtime. This might create an issue when someone writes "43535" as their name, or "Liz" as their age and you try to utilize that data in unexpected ways but you might not know when you finish writing the program - only when it actually runs - because of this distinction.
+
 
 Examples: Perl, Ruby, Python, PHP, JavaScript, Erlang
 
