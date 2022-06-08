@@ -11,7 +11,7 @@ categories: infosec
 **BANDIT LEVEL 11:**
 
 The first thing I did was SSH into : ssh bandit.labs.overthewire.org -p 2220 -l bandit11 using password IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
-Then I pulled up the Over The Wire page for this Bandit level: [https://overthewire.org/wargames/bandit/bandit12.html]
+Then I pulled up the Over The Wire page for this Bandit level: <https://overthewire.org/wargames/bandit/bandit12.html>
 I always note what the page says:
  
 **Level Goal: **
@@ -32,7 +32,8 @@ Rot13 on Wikipedia
 
 
 So, with that out of the way let's get started. The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions. First thought - Sounds like if there are symbols or numbers then those are not rotated, only upper and lowercase letters? Not sure of the ASCII implications of this. We'll let's see what we find. I type "ls -l" and see the data.txt file. Let's do cat data.txt and see what is there.
-The file contains the following: "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh". So I'm thinking that we need to shift this 13 over on the ASCII chart. We could do it by hand, but that would be annoying. My first idea was I know we can shift using binary so I was looking up converting to binary and then I was looking up ASCII Shift Cypher [(https://www.dcode.fr/ascii-shift-cipher)] and the first result was talking about ROT-47 etc. etc. and I was like ok, ROT, better go ahead and look at that suggested Wiki [(https://en.wikipedia.org/wiki/ROT13)]. The ROT13 page on Wikipedia states ROT13 stands for rotate by 13 places and is a simple letter substitution cypher. ROT13 is a special case of the Caesar cipher. Because there are 26 letters (2×13) in the basic Latin alphabet, ROT13 is its own inverse; that is, to undo ROT13, the same algorithm is applied, so the same action can be used for both encoding and decoding. The algorithm provides virtually no cryptographic security, and is often cited as a canonical example of weak encryption. Under the implementation section of the Wiki page we see the following code example:
+
+The file contains the following: "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh". So I'm thinking that we need to shift this 13 over on the ASCII chart. We could do it by hand, but that would be annoying. My first idea was I know we can shift using binary so I was looking up converting to binary and then I was looking up ASCII Shift Cypher <https://www.dcode.fr/ascii-shift-cipher> and the first result was talking about ROT-47 etc. etc. and I was like ok, ROT, better go ahead and look at that suggested Wiki <https://en.wikipedia.org/wiki/ROT13>. The ROT13 page on Wikipedia states ROT13 stands for rotate by 13 places and is a simple letter substitution cypher. ROT13 is a special case of the Caesar cipher. Because there are 26 letters (2×13) in the basic Latin alphabet, ROT13 is its own inverse; that is, to undo ROT13, the same algorithm is applied, so the same action can be used for both encoding and decoding. The algorithm provides virtually no cryptographic security, and is often cited as a canonical example of weak encryption. Under the implementation section of the Wiki page we see the following code example:
 
 {% highlight shell%}
 $ # Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
@@ -40,7 +41,7 @@ $ # Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
 $ tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "The Quick Brown Fox Jumps Over The Lazy Dog"
 
 Gur Dhvpx Oebja Sbk Whzcf Bire Gur Ynml Qbt
-{% end highlight%}
+{% endhighlight%}
 
 So, it appears that by using tr, or transform, they are shifting uppercase A-Z to Uppercase N, through Z, then wraps around again to M and then the lowercase does the same (a 13 letter shift).
 
@@ -51,12 +52,12 @@ So let's give ours a try:
 {% highlight shell%}
 tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh"
 # Printed out: The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
-{% end highlight%}
+{% endhighlight%}
 
 {% highlight shell%}
 tr 'N-ZA-Mn-za-m' 'A-Za-z' <<< "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh"
 # Printed out: The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
-{% end highlight%}
+{% endhighlight%}
 
 *Confession*: I put it in both ways just to test, I don't know why but I didn't 100% have faith that I would get the same answer both ways!!! But of course, it makes sense since 13 is half the alphabet. Kind of breaks my brain though lol!
 
@@ -69,7 +70,7 @@ We can now access Bandit Level 12 with the password **5Te8Y4drgCRfCx8ugdwuEX8KFC
 
 The first thing I did was SSH into : ssh bandit.labs.overthewire.org -p 2220 -l bandit14 using password 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 
-Then I pulled up the Over The Wire page for this Bandit level: [https://overthewire.org/wargames/bandit/bandit15.html] and proceeded to take note
+Then I pulled up the Over The Wire page for this Bandit level: <https://overthewire.org/wargames/bandit/bandit15.html> and proceeded to take note
 
 **Level Goal:**
 
@@ -95,7 +96,7 @@ The first thing I tried was:
 
 {% highlight shell%}
 echo '4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e' | nc localhost 30000
-{% end highlight%}
+{% endhighlight%}
 
 I received the following error: *localhost [127.0.0.1] 37856 (?) : Connection refused*
 
@@ -116,7 +117,7 @@ This one was a piece of cake! Would have been done in 1 minute instead of 10 if 
 
 The first thing I did was SSH into : ssh bandit.labs.overthewire.org -p 2220 -l bandit15 using password BfMYroe26WYalil77FoDi9qh59eK5xNr
 
-Then I pulled up the Over The Wire page for this Bandit level: [https://overthewire.org/wargames/bandit/bandit16.html]
+Then I pulled up the Over The Wire page for this Bandit level: <https://overthewire.org/wargames/bandit/bandit16.html>
 
 I always note what the page says:
 
@@ -149,13 +150,13 @@ From the cookbook:
 
 So, we know we need to encrypt our message. Looking at the suggested commands, OpenSSL could help.
 
-**Trouble**. I Googled things like "send an ssl encrypted message" and stuff like that for like an hour, seriously. I won't bore you with all the terms I used here, but they were plentiful and the results barren. I finally found this page: [http://erickveil.github.io/openssl,/ssl,/encryption,/socket,/network,/bash,/linux/2021/01/21/How-to-Send-Encrypted-Messages-Using-OpenSSL-on-the-Command-Line.html]. Every other resource was honestly pretty irrelevant and mostly about websites. So a big thank you Erick Veil!! You are the MVP!
+**Trouble**. I Googled things like "send an ssl encrypted message" and stuff like that for like an hour, seriously. I won't bore you with all the terms I used here, but they were plentiful and the results barren. I finally found this page: <http://erickveil.github.io/openssl,/ssl,/encryption,/socket,/network,/bash,/linux/2021/01/21/How-to-Send-Encrypted-Messages-Using-OpenSSL-on-the-Command-Line.html>. Every other resource was honestly pretty irrelevant and mostly about websites. So a big thank you Erick Veil!! You are the MVP!
 
 Tried the suggested: openssl s_client -connect 127.0.0.1:30001
 
 (opensll, who knows something something s_client (?), the host IP and the port)
 
-This got meb ack a *lot* of info:
+This got me back a *lot* of info:
 
 {% highlight shell%}
 
@@ -293,20 +294,10 @@ SSL-Session:
 
     Extended master secret: yes
 
-{% end highlight%}
+{% endhighlight%}
 
 It gave me a password prompt (that I honestly didn't even notice *WAS* a password prompt for a while haha) so according to instructions I added: BfMYroe26WYalil77FoDi9qh59eK5xNr
 
 It then gave me back: **Correct! cluFn7wTiGryunymYOu4RcffSxQluehd**
 
 Takeaway: This openssl program is really large. I started looking into it and got really overwhelmed. For having never worked with it before, I really found this one to be a challenge. I needed to do a lot more external research than I normally do, and even then the results were so disparate. Hard to know what you don't know! Got it eventually, but it felt pretty disappointing!!
-
-
-
-
-
-
-
-
-
-
