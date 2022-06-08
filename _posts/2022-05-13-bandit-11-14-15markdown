@@ -1,0 +1,312 @@
+---
+layout: post
+title:  "Over The Wire - Bandit Levels 11,14 & 15 Write-Ups"
+date:   2022-05-13 12:15:00
+categories: infosec
+---
+
+**SPOILER WARNING! DEFINITELY CONTAINS ALL THE INFO TO BANDITS 11, 14 AND 15!! PROCEED WITH CAUTION!!**
+
+
+**BANDIT LEVEL 11:**
+
+The first thing I did was SSH into : ssh bandit.labs.overthewire.org -p 2220 -l bandit11 using password IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+Then I pulled up the Over The Wire page for this Bandit level: [https://overthewire.org/wargames/bandit/bandit12.html]
+I always note what the page says:
+ 
+**Level Goal: **
+
+The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+ 
+
+**Commands you may need to solve this level:**
+
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+ 
+
+**Helpful Reading Material:**
+
+Rot13 on Wikipedia
+
+
+So, with that out of the way let's get started. The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions. First thought - Sounds like if there are symbols or numbers then those are not rotated, only upper and lowercase letters? Not sure of the ASCII implications of this. We'll let's see what we find. I type "ls -l" and see the data.txt file. Let's do cat data.txt and see what is there.
+The file contains the following: "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh". So I'm thinking that we need to shift this 13 over on the ASCII chart. We could do it by hand, but that would be annoying. My first idea was I know we can shift using binary so I was looking up converting to binary and then I was looking up ASCII Shift Cypher [(https://www.dcode.fr/ascii-shift-cipher)] and the first result was talking about ROT-47 etc. etc. and I was like ok, ROT, better go ahead and look at that suggested Wiki [(https://en.wikipedia.org/wiki/ROT13)]. The ROT13 page on Wikipedia states ROT13 stands for rotate by 13 places and is a simple letter substitution cypher. ROT13 is a special case of the Caesar cipher. Because there are 26 letters (2×13) in the basic Latin alphabet, ROT13 is its own inverse; that is, to undo ROT13, the same algorithm is applied, so the same action can be used for both encoding and decoding. The algorithm provides virtually no cryptographic security, and is often cited as a canonical example of weak encryption. Under the implementation section of the Wiki page we see the following code example:
+
+{% highlight shell%}
+$ # Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
+
+$ tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "The Quick Brown Fox Jumps Over The Lazy Dog"
+
+Gur Dhvpx Oebja Sbk Whzcf Bire Gur Ynml Qbt
+{% end highlight%}
+
+So, it appears that by using tr, or transform, they are shifting uppercase A-Z to Uppercase N, through Z, then wraps around again to M and then the lowercase does the same (a 13 letter shift).
+
+Note also - We see that "Gur" word here in their example is just like in ours, so even before running it we can see that "Gur" must mean "The"! So let's get to runing ours just like in the example but using our own info.
+
+So let's give ours a try:
+
+{% highlight shell%}
+tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh"
+# Printed out: The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+{% end highlight%}
+
+{% highlight shell%}
+tr 'N-ZA-Mn-za-m' 'A-Za-z' <<< "Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh"
+# Printed out: The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+{% end highlight%}
+
+*Confession*: I put it in both ways just to test, I don't know why but I didn't 100% have faith that I would get the same answer both ways!!! But of course, it makes sense since 13 is half the alphabet. Kind of breaks my brain though lol!
+
+We can now access Bandit Level 12 with the password **5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu**
+
+***
+
+
+**BANDIT LEVEL 14:**
+
+The first thing I did was SSH into : ssh bandit.labs.overthewire.org -p 2220 -l bandit14 using password 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+Then I pulled up the Over The Wire page for this Bandit level: [https://overthewire.org/wargames/bandit/bandit15.html] and proceeded to take note
+
+**Level Goal:**
+
+The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+
+
+**Commands you may need to solve this level:**
+
+ssh, telnet, nc, openssl, s_client, nmap
+
+**Helpful Reading Material:**
+
+[How the Internet works in 5 minutes (YouTube) (Not completely accurate, but good enough for beginners)](https://www.youtube.com/watch?v=7_LPdttKXPc)
+[IP Addresses](http://computer.howstuffworks.com/web-server5.htm)
+[IP Address on Wikipedia](https://en.wikipedia.org/wiki/IP_address)
+[Localhost on Wikipedia](https://en.wikipedia.org/wiki/Localhost)
+[Ports](http://computer.howstuffworks.com/web-server8.htm)
+[Port (computer networking) on Wikipedia](https://en.wikipedia.org/wiki/Port_(computer_networking))
+
+Well, that's a lot of reading. I think we should give it a whirl first!
+
+The first thing I tried was:
+
+{% highlight shell%}
+echo '4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e' | nc localhost 30000
+{% end highlight%}
+
+I received the following error: *localhost [127.0.0.1] 37856 (?) : Connection refused*
+
+:( Hm
+
+*Several minutes pass*
+
+*Much Googling ensues*
+
+Oops, sometimes the solution is right in front of you - a simple typo! I wrote 300,000 instead of 30,000 the first time (code changed above as to not confuse anyone)! Tried again and voila - The password is **BfMYroe26WYalil77FoDi9qh59eK5xNr**
+
+This one was a piece of cake! Would have been done in 1 minute instead of 10 if I had paid a little closer attention! Good reminder to always just double check what you typed before assuming a conspiracy is at foot!
+
+***
+
+
+**BANDIT LEVEL 15:**
+
+The first thing I did was SSH into : ssh bandit.labs.overthewire.org -p 2220 -l bandit15 using password BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+Then I pulled up the Over The Wire page for this Bandit level: [https://overthewire.org/wargames/bandit/bandit16.html]
+
+I always note what the page says:
+
+**Level Goal:**
+
+The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.
+
+*Helpful note: Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…*
+
+
+**Commands you may need to solve this level:**
+
+ssh, telnet, nc, openssl, s_client, nmap
+
+
+**Helpful Reading Material:**
+
+[Secure Socket Layer/Transport Layer Security on Wikipedia](https://en.wikipedia.org/wiki/Secure_Socket_Layer)
+[OpenSSL Cookbook - Testing with OpenSSL](https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html)
+
+I read through some of the material to prepare. From the Wikipedia entry:
+
+Transport Layer Security (TLS), the successor of the now-deprecated Secure Sockets Layer (SSL), is a cryptographic protocol designed to provide communications security over a computer network. The protocol is widely used in applications such as email, instant messaging, and voice over IP, but its use in securing HTTPS remains the most publicly visible.
+
+The TLS protocol aims primarily to provide cryptography, including privacy (confidentiality), integrity, and authenticity through the use of certificates, between two or more communicating computer applications.
+
+From the cookbook:
+
+"Due to the large number of protocol features and implementation quirks, it’s sometimes difficult to determine the exact configuration and features of secure servers. Although many tools exist for this purpose, it’s often difficult to know exactly how they work, and that sometimes makes it difficult to fully trust their results."
+
+So, we know we need to encrypt our message. Looking at the suggested commands, OpenSSL could help.
+
+**Trouble**. I Googled things like "send an ssl encrypted message" and stuff like that for like an hour, seriously. I won't bore you with all the terms I used here, but they were plentiful and the results barren. I finally found this page: [http://erickveil.github.io/openssl,/ssl,/encryption,/socket,/network,/bash,/linux/2021/01/21/How-to-Send-Encrypted-Messages-Using-OpenSSL-on-the-Command-Line.html]. Every other resource was honestly pretty irrelevant and mostly about websites. So a big thank you Erick Veil!! You are the MVP!
+
+Tried the suggested: openssl s_client -connect 127.0.0.1:30001
+
+(opensll, who knows something something s_client (?), the host IP and the port)
+
+This got meb ack a *lot* of info:
+
+{% highlight shell%}
+
+CONNECTED(00000003)
+
+depth=0 CN = localhost
+
+verify error:num=18:self signed certificate
+
+verify return:1
+
+depth=0 CN = localhost
+
+verify return:1
+
+---
+
+Certificate chain
+
+ 0 s:/CN=localhost
+
+   i:/CN=localhost
+
+---
+
+Server certificate
+
+-----BEGIN CERTIFICATE-----
+
+MIICBjCCAW+gAwIBAgIEXcVbPTANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+
+b2NhbGhvc3QwHhcNMjIwMzA5MTk0NzQyWhcNMjMwMzA5MTk0NzQyWjAUMRIwEAYD
+
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALDCas6k
+
+DHxTRoxVISHtXOeCwJ8Sax5BZN76Hle8AH6pYTAdv9/FRssWL1xppFAtiGnFvglu
+
+95FJvHEQirY4F0oPBTbtGU2xhzZzkWRL5Yj2C3Q2c99cyh+uWQT7sXPtB8W1osPc
+
+YIo83YkXiArpt28474ZYdl+ohbPtP1oQHBv3AgMBAAGjZTBjMBQGA1UdEQQNMAuC
+
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+
+DQEBBQUAA4GBAC2693WiK/kXMCauf1fEg5DwuxIfm0saYKiLSceyZo1G4IggqOBO
+
+9JCtvMIV/xRAmYEnPvJmf0JtYv+2fsicaPh9E1GRmU0vGoYDZzA7NTZOgRmHlRKe
+
+ihh/XSGrY7tE1qU+EfizmhcB35iZ7W5INIKlu7oyBWcvk3rI4jtPQeZp
+
+-----END CERTIFICATE-----
+
+subject=/CN=localhost
+
+issuer=/CN=localhost
+
+---
+
+No client certificate CA names sent
+
+Peer signing digest: SHA512
+
+Server Temp Key: X25519, 253 bits
+
+---
+
+SSL handshake has read 1019 bytes and written 269 bytes
+
+Verification error: self signed certificate
+
+---
+
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+
+Server public key is 1024 bit
+
+Secure Renegotiation IS supported
+
+Compression: NONE
+
+Expansion: NONE
+
+No ALPN negotiated
+
+SSL-Session:
+
+    Protocol  : TLSv1.2
+
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+
+    Session-ID: D6CC215815C4793261EE0FD97D92D57D39D62894528350CF166D0DA243DB19F8
+
+    Session-ID-ctx:
+
+    Master-Key: 6692270D3A275F6F6C63B2A2520C02F061A3F474EE592A1C8AB1D2C5EEBDE23B91FD9531D04AF2BF7CD55514DA8C8CED
+
+    PSK identity: None
+
+    PSK identity hint: None
+
+    SRP username: None
+
+    TLS session ticket lifetime hint: 7200 (seconds)
+
+    TLS session ticket:
+
+    0000 - d3 53 01 d9 4c 2e 82 50-ef 16 38 c5 d8 1b dd f2   .S..L..P..8.....
+
+    0010 - fa 1a 92 a4 2a 9a 8d 8b-86 1d 6f 7e 65 cc 7a 88   ....*.....o~e.z.
+
+    0020 - d2 82 a0 e3 ff ea ad 6b-78 c9 bb 60 53 91 2c 9c   .......kx..`S.,.
+
+    0030 - 64 23 c1 88 a6 de 7d 90-d1 f6 a4 82 72 97 34 af   d#....}.....r.4.
+
+    0040 - c4 fb c6 d7 7a 84 16 6b-12 2f e9 9f 78 97 c9 5f   ....z..k./..x.._
+
+    0050 - 19 73 5c bb 95 8a b9 00-d5 f1 1d 6d 09 09 6b 9f   .s\........m..k.
+
+    0060 - 3a de bb 6b e2 74 66 b8-b5 71 94 85 ac f2 6d bb   :..k.tf..q....m.
+
+    0070 - 0d da 87 f2 39 ec 22 29-67 a8 a5 bb 44 88 3f 87   ....9.")g...D.?.
+
+    0080 - 2d c7 c0 3a fb de 1b e4-c3 87 59 ac 28 c5 01 33   -..:......Y.(..3
+
+    0090 - 98 57 87 aa 32 de 03 f8-c1 d7 49 b3 09 55 af 91   .W..2.....I..U..
+
+ 
+
+    Start Time: 1652490999
+
+    Timeout   : 7200 (sec)
+
+    Verify return code: 18 (self signed certificate)
+
+    Extended master secret: yes
+
+{% end highlight%}
+
+It gave me a password prompt (that I honestly didn't even notice *WAS* a password prompt for a while haha) so according to instructions I added: BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+It then gave me back: **Correct! cluFn7wTiGryunymYOu4RcffSxQluehd**
+
+Takeaway: This openssl program is really large. I started looking into it and got really overwhelmed. For having never worked with it before, I really found this one to be a challenge. I needed to do a lot more external research than I normally do, and even then the results were so disparate. Hard to know what you don't know! Got it eventually, but it felt pretty disappointing!!
+
+
+
+
+
+
+
+
+
+
