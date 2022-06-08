@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Over The Wire - Bandit Levels 11,14 & 15 Write-Ups"
+title:  "Over The Wire - Bandit Levels 11, 14 & 15 Write-Ups"
 date:   2022-05-13 12:15:00
 categories: infosec
 ---
