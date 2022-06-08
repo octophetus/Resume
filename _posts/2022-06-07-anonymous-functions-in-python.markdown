@@ -18,8 +18,8 @@ Let's say we want to make a new list using the filter function. Filter is a func
 
 {% highlight Python %}	
 def is_multiple_of_three(x):
-	    return x % 3 == 0
-	
+    return x % 3 == 0	
+
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 	
 new_list =  filter(is_multiple_of_three, nums)
@@ -34,12 +34,22 @@ Using the filter function is very similar to list comprehensions, for example:
 
 {% highlight Python %}		
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 new_list = [i for i in nums if i % 3 == 0]
 {% endhighlight %}
 
 In the example list comprehension above, we are saying create a new list, then make a new number for each number in the list nums if that number in nums is divisible by 3. So we ditch the pre-made function and do it in line.
+
+Alternatively, we can also do a list comprehension where we refer to a function that we have already defined, for example:
+{% highlight Python %}
+def is_multiple_of_three(x):
+    return x % 3 == 0
 	
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+new_list = [i for i in nums if is_multiple_of_three(i)]
+{% endhighlight %}
+
+In the example list comprehension above, we are saying to add elements to the new_list for each element in nums, only if each number is "whatever-the-function-says".
+
 	
 **#Using Anonymous Functions**
 
@@ -67,37 +77,42 @@ new_list = filter(lambda x: x % 3 == 0, nums)
 
   *WORKS THE SAME AS:*
 
-{% highlight Python %}				
+{% highlight Python %}		
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 new_list = []
-
     for i in nums:
-
         If x % 3 == 0:
-
             new_list.append(i)
-
 {% endhighlight %}	
+
+  *AND ALSO WORKS THE SAME AS:*
+
+{% highlight Python %}
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+new_list = [i for i in nums if i % 3 == 0]
+{% endhighlight %}
 
 Now with mapping:
 
 {% highlight Python %}	
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 map(lambda x: x * 2, nums)
 {% endhighlight %}
 	
-     WORKS THE SAME AS:
+     *WORKS THE SAME AS:*
 
 {% highlight Python %}	
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 new_list = []
-
     for i in nums:
-
         new_list.append(i * 2)
+{% endhighlight %}
+
+     *AND ALSO WORKS THE SAME AS:*
+
+{% highlight Python %}
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+new_list = [i*2 for i in nums]
 {% endhighlight %}
 
 As we can see, in the filter example we are adding a number to our new list if it is divisible by 3.
@@ -185,3 +200,13 @@ For example, If you want to just use map or filter alone, an anonymous function 
 If you want to use both, then a list comprehension is probably the cleaner way to go.
 	
 If your function is more involved, going to be used again, maybe is pushing to a database, etc. then you will oftentimes want to write it the classic way of having a formally defined function and for loops, etc.
+
+
+**NOTE:**
+
+The syntax changed in Python 3. Now when we use filter, etc. we need to write it wrapped inside list(), like so (for example):
+
+{% highlight Python %}
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+new_list = list(filter(lambda x: x % 3 == 0, nums))
+{% endhighlight %}
