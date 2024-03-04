@@ -228,6 +228,20 @@ ul li:before {
   left: 5px;
 }
 
+/* EDUCATION */
+
+.education .leftflex,
+.education .rightflex,
+.education h3 {
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.education .leftflex {
+  padding-bottom: 5%;
+  margin-right: 10%;
+}
+
 /* LINKS */
 
 a:link,
@@ -264,12 +278,13 @@ footer a {
   height: 60px;
   width: 90%;
   margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
 }
 
 .grow:hover {
   height: 100%;
-  width: 100%;
+  width: 95%;
   /*Gives pop-out effect */
   -moz-transform: scale(1.07);
   -webkit-transform: scale(1.07);
