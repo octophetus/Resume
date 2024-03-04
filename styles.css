@@ -1,398 +1,379 @@
 body {
-    background-color: #FFFFFF;
-    margin: 0;
-    color: #272827;
-    font-family: Raleway, sans serif;
-    font-size: 18px;
+  background-color: #ffffff;
+  margin: 0;
+  color: #272827;
+  font-family: Raleway, sans serif;
+  font-size: 18px;
 }
 
 h1 {
-    font-family: Josefin Slab, Arial, sans serif;
-    font-size: 3em;
+  font-family: Josefin Slab, Arial, sans serif;
+  font-size: 3em;
 }
 
 h2 {
-    font-family: Josefin Slab, sans serif;
-    font-size: 2em;
-    margin-top: 0;
-    text-align: center;
+  font-family: Josefin Slab, sans serif;
+  font-size: 2em;
+  margin-top: 0;
+  text-align: center;
 }
 
 .alignleft {
-    text-align: left;
+  text-align: left;
 }
 
 h3 {
-    font-family: Josefin Slab, sans serif;
-    font-size: 1.2em;
-    text-align: center;
+  font-family: Josefin Slab, sans serif;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .content-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 50px;
-    overflow: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  overflow: auto;
 }
 
 .flex-container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
-
 
 /*NAV BAR */
 
 nav {
-    text-align: center;
+  text-align: center;
 }
 
 nav a {
-    font-family: Josefin Slab, sans serif;
-    font-size: 2em;
-    font-weight: 700;
-    display: inline-block;
-    padding: 15px 20px;
+  font-family: Josefin Slab, sans serif;
+  font-size: 2em;
+  font-weight: 700;
+  display: inline-block;
+  padding: 15px 20px;
 }
 
 #dropdown {
-    position: relative;
+  position: relative;
 }
 
 #dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    top: 80%;
-    left: calc(50% - 100px);
-    /*    box-sizing: border-box;*/
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 80%;
+  left: calc(50% - 100px);
+  /*    box-sizing: border-box;*/
 }
 
 #dropdown:hover #dropdown-content {
-    display: block;
+  display: block;
 }
 
 #ouijileft {
-    /*	position: absolute;
+  /*	position: absolute;
 	right: 20px;*/
-    cursor: url(planchette.png), auto;
-    display: inline;
-    padding: 0;
-    margin-right: -5px;
+  cursor: url(planchette.png), auto;
+  display: inline;
+  padding: 0;
+  margin-right: -5px;
 }
 
 #ouijiright {
-    /*	position: absolute;*/
-    cursor: url(planchette.png), auto;
-    display: inline;
-    padding: 0;
+  /*	position: absolute;*/
+  cursor: url(planchette.png), auto;
+  display: inline;
+  padding: 0;
 }
-
 
 /* HEADER SECTION */
 
 header {
-    background: #FCD3C1;
+  background: #fcd3c1;
 }
 
 .flip-card {
-    background-color: transparent;
-    width: 300px;
-    /* perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  background-color: transparent;
+  width: 300px;
+  /* perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
-
 
 /* This container is needed to position the front and back side */
 
 .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
 .leftflex-header {
-    margin-right: 1em;
-    min-height: 320px;
+  margin-right: 1em;
+  min-height: 320px;
 }
-
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 
 .leftflex-header:hover .flip-card-inner,
 .leftflex-header:active .flip-card-inner {
-    transform: rotateY(540deg);
+  transform: rotateY(540deg);
 }
-
 
 /* Position the front and back side */
 
 .flip-card-front,
 .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    /* Safari */
-    backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
 }
-
 
 /* Style the front side (fallback if image is missing) */
 
 .flip-card-front {
-    background-color: #bbb;
-    color: black;
+  background-color: #bbb;
+  color: black;
 }
-
 
 /* Style the back side (fallback if image is missing) */
 
 .flip-card-back {
-    background-color: dodgerblue;
-    color: white;
-    transform: rotateY(180deg);
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 .profile-info {
-    padding-top: 5%;
-    padding-left: 0%;
+  padding-top: 5%;
+  padding-left: 0%;
 }
 
 .profilepic {
-    width: 300px;
-    border: 10px solid #272827;
-    border-radius: 50%;
-    box-sizing: border-box;
+  width: 300px;
+  border: 10px solid #272827;
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 
 header h1,
 header h2 {
-    margin: 0;
+  margin: 0;
 }
-
 
 /* .rightflex keeps the right hand side of our flex info spaced away from the left hand side */
 
 .rightflex,
 .leftflex {
-    flex: 1;
-    min-width: 200px;
+  flex: 1;
+  min-width: 200px;
 }
-
 
 /* The header flex boxes have their own because otherwise the header text bleeds into image */
 
 .rightflex-header,
 .leftflex-header {
-    flex: 1;
+  flex: 1;
 }
-
 
 /* Different background colors of the work drop downs */
 
 .work {
-    background-color: #9FF3E4;
+  background-color: #9ff3e4;
 }
 
 .work1 {
-    background-color: #BFB8F2;
+  background-color: #bfb8f2;
 }
 
 .work2 {
-    background-color: #DDC6F2;
+  background-color: #ddc6f2;
 }
 
 .work3 {
-    background-color: #9DE1F2;
+  background-color: #9de1f2;
 }
 
 .education {
-    background-color: #EF8B6E;
+  background-color: #ef8b6e;
 }
 
 .bold {
-    font-weight: 700;
+  font-weight: 700;
 }
-
 
 /* SPECIAL BULLETS */
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 ul li {
-    padding: 5px 0 5px 30px;
-    position: relative;
+  padding: 5px 0 5px 30px;
+  position: relative;
 }
 
 ul li:before {
-    content: '\f005';
-    color: #FCD3C1;
-    font-family: 'FontAwesome';
-    position: absolute;
-    top: 6px;
-    left: 5px;
+  content: "\f005";
+  color: #fcd3c1;
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 6px;
+  left: 5px;
 }
-
 
 /* LINKS */
 
 a:link,
 a:visited {
-    color: #EF8B6E;
-    text-decoration: none;
+  color: #ef8b6e;
+  text-decoration: none;
 }
 
 footer a:hover {
-    text-shadow: 0 0 20px #EF8B6E;
+  text-shadow: 0 0 20px #ef8b6e;
 }
-
 
 /* FOOTER */
 
 footer {
-    color: #FFFFFF;
-    text-align: center;
-    background: #272827;
+  color: #ffffff;
+  text-align: center;
+  background: #272827;
 }
 
 footer a {
-    margin: 20px;
+  margin: 20px;
 }
 
 .socialmediaicons {
-    font-size: 5em;
+  font-size: 5em;
 }
-
 
 /* Employment History Cards */
 
 .grow {
-    padding: 5px 5px 5px 5px;
-    border-radius: 10px;
-    height: 60px;
-    width: 100%;
-    overflow: hidden;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  height: 60px;
+  width: 90%;
+  margin-left: auto;
+  overflow: hidden;
 }
 
 .grow:hover {
-    height: 100%;
-    width: 100%;
-    /*Gives pop-out effect */
-    -moz-transform: scale(1.07);
-    -webkit-transform: scale(1.07);
-    -o-transform: scale(1.07);
-    -ms-transform: scale(1.07);
-    transform: scale(1.07);
-    /*Time it takes to expand */
-    -webkit-transition: transform .7s ease-in-out;
-    -moz-transition: transform .7s ease-in-out;
-    -ms-transition: transform .7s ease-in-out;
-    -o-transition: transform .7s ease-in-out;
-    transition: transform .7s ease-in-out;
+  height: 100%;
+  width: 100%;
+  /*Gives pop-out effect */
+  -moz-transform: scale(1.07);
+  -webkit-transform: scale(1.07);
+  -o-transform: scale(1.07);
+  -ms-transform: scale(1.07);
+  transform: scale(1.07);
+  /*Time it takes to expand */
+  -webkit-transition: transform 0.7s ease-in-out;
+  -moz-transition: transform 0.7s ease-in-out;
+  -ms-transition: transform 0.7s ease-in-out;
+  -o-transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
 }
 
-
 /* NAV BAR POP OUT IMAGES */
-
 
 /* POP OUT IMAGE FOR HOVERING ON ABOUT IN THE NAV BAR */
 
 #worklink:hover {
-    position: relative;
+  position: relative;
 }
 
 #aboutlink:hover::after {
-    content: url(ghost.png);
-    /* change this image and keep the rest of the code in this section if you want to create a new menu item */
-    display: block;
-    position: absolute;
-    /*animation: rotate-btn .6s linear infinite;
+  content: url(ghost.png);
+  /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+  display: block;
+  position: absolute;
+  /*animation: rotate-btn .6s linear infinite;
   	-webkit-animation: rotate-btn .6s linear infinite;*/
-    opacity: 1;
-    animation: fade 1.5s linear infinite;
-    z-index: 1;
+  opacity: 1;
+  animation: fade 1.5s linear infinite;
+  z-index: 1;
 }
-
 
 /* POP OUT IMAGE FOR HOVERING ON WORK IN THE NAV BAR */
 
 #worklink:hover::after {
-    content: url(work2.png);
-    /* change this image and keep the rest of the code in this section if you want to create a new menu item */
-    display: block;
-    position: absolute;
-    left: 30%;
-    animation: rotate-btn .6s linear infinite;
-    -webkit-animation: rotate-btn .6s linear infinite;
-    z-index: 1;
+  content: url(work2.png);
+  /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+  display: block;
+  position: absolute;
+  left: 30%;
+  animation: rotate-btn 0.6s linear infinite;
+  -webkit-animation: rotate-btn 0.6s linear infinite;
+  z-index: 1;
 }
-
 
 /* POP OUT IMAGE FOR HOVERING ON EDUCATION IN THE NAV BAR */
 
 #educationlink:hover::after {
-    content: url(school2.png);
-    /* change this image and keep the rest of the code in this section if you want to create a new menu item */
-    display: block;
-    position: absolute;
-    animation: rotate-btn .6s linear infinite;
-    -webkit-animation: rotate-btn .6s linear infinite;
-    z-index: 1;
+  content: url(school2.png);
+  /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+  display: block;
+  position: absolute;
+  animation: rotate-btn 0.6s linear infinite;
+  -webkit-animation: rotate-btn 0.6s linear infinite;
+  z-index: 1;
 }
-
 
 /* POP OUT IMAGE FOR HOVERING ON CONTACT IN THE NAV BAR */
 
 #contactlink:hover::after {
-    content: url(bat2.png);
-    /* change this image and keep the rest of the code in this section if you want to create a new menu item */
-    display: block;
-    position: absolute;
-    animation: rotate-btn .6s linear infinite;
-    -webkit-animation: rotate-btn .6s linear infinite;
-    z-index: 1;
+  content: url(bat2.png);
+  /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+  display: block;
+  position: absolute;
+  animation: rotate-btn 0.6s linear infinite;
+  -webkit-animation: rotate-btn 0.6s linear infinite;
+  z-index: 1;
 }
 
 /* POP OUT IMAGE FOR HOVERING ON BLOGIN THE NAV BAR */
 
 #bloglink:hover::after {
-    content: url(pencil.png);
-    /* change this image and keep the rest of the code in this section if you want to create a new menu item */
-    display: block;
-    position: absolute;
-    animation: rotate-btn .6s linear infinite;
-    -webkit-animation: rotate-btn .6s linear infinite;
-    z-index: 1;
+  content: url(pencil.png);
+  /* change this image and keep the rest of the code in this section if you want to create a new menu item */
+  display: block;
+  position: absolute;
+  animation: rotate-btn 0.6s linear infinite;
+  -webkit-animation: rotate-btn 0.6s linear infinite;
+  z-index: 1;
 }
 
-
 @keyframes rotate-btn {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(20deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(-20deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
 }
 
 @keyframes fade {
-    0%,
-    100% {
-        opacity: 0
-    }
-    50% {
-        opacity: 1
-    }
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
